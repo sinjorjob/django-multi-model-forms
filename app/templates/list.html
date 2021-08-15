@@ -1,0 +1,28 @@
+{% extends '.\base.html' %}
+{% block title %}社員ー覧{% endblock %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12">
+<table class="table table-bordered table-striped table-sm">
+    <thead class="table-dark text-white">
+        <tr>
+            <th>名前</th>
+            <th>年齢</th>
+            <th>詳細</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for employee in object_list %}
+            <tr>
+                <td> {{ employee.name }} </td>
+                <td> {{ member.age }} </td>
+                <td><a href="{% url 'detail' employee.pk %}">詳細ページ>></a></td>
+            </tr>
+            {% endfor %}
+    </tbody>
+</table>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends '.\base.html' %}
+{% load widget_tweaks %}
+{% block title %}{{ employee.name }}の更新画面<a href="{% url 'detail' employee.pk %}">(詳細画面へ戻る)</a>{% endblock %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card border-secondary mb-3" style="max-width: 35rem;">
+            <div class="card-header"><h5>社員情報</h5></div>
+            <div class="card-body text-secondary">
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in employee_form %}
+                    <div class="form-group">
+                      {{ field.label_tag }}
+                      {% render_field field class="form-control" %}
+                    </div>
+                  {% endfor %}
+                    <button type="submit" class="btn btn-primary" name="save_employee">保存</button>
+                  </form>   
+        </div>
+       </div>
+</div>
+<div class="col-md-6">
+    <div class="card border-secondary mb-3" style="max-width: 35rem;">
+        <div class="card-header"><h5>連絡先情報</h5></div>
+        <div class="card-body text-secondary">
+            <form method="post">
+                {% csrf_token %}
+                {% for field in contact_form %}
+                <div class="form-group">
+                  {{ field.label_tag }}
+                  {% render_field field class="form-control" %}
+                </div>
+              {% endfor %}
+                <button type="submit" class="btn btn-primary" name="save_contact">保存</button>
+              </form>   
+    </div>
+   </div>
+</div>
+
+
+<div class="col-md-6">
+    <div class="card border-secondary mb-3" style="max-width: 35rem;">
+        <div class="card-header"><h5>マイナンバー情報</h5></div>
+        <div class="card-body text-secondary">
+            <form method="post">
+                {% csrf_token %}
+                {% for field in mynumber_form %}
+                <div class="form-group">
+                  {{ field.label_tag }}
+                  {% render_field field class="form-control" %}
+                </div>
+              {% endfor %}
+                <button type="submit" class="btn btn-primary" name="save_mynumber">保存</button>
+              </form>   
+    </div>
+   </div>
+</div>
+</div>
+
+{% endblock %}

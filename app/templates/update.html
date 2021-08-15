@@ -1,0 +1,25 @@
+{% extends '.\base.html' %}
+{% load widget_tweaks %}
+{% block title %}{{ employee.name }}の更新画面<a href="{% url 'detail' employee.pk %}">(詳細画面へ戻る)</a>{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card border-secondary mb-3" style="max-width: 35rem;">
+            <div class="card-header"><h5>{{object.name}}のプロファイル</h5></div>
+            <div class="card-body text-secondary">
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form-group">
+                      {{ field.label_tag }}
+                      {% render_field field class="form-control" %}
+                    </div>
+                  {% endfor %}
+                    <button type="submit" class="btn btn-primary">保存</button>
+                  </form>   
+        </div>
+       </div>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>マルチフォーム画面デモ</title>
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron card card-block">
+                    <h2>マルチフォーム画面デモ</h2>
+                 
+                </div>
+                <h4>
+                    {% block title %}
+                    {% endblock %}
+                </h4>
+               
+                        {% block content %}
+                        {% endblock %}
+              
+            </div>
+        </div>
+    </div>
+
+ <!-- フッター -->
+<footer class="py-1 bg-dark text-light">
+    <div class="container text-center">
+      <!-- ナビゲーション -->
+      <ul class="nav justify-content-center mb-3">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'list' %}">Top</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+      <!-- /ナビゲーション -->
+      <p><small>Copyright &copy;2021 xxx, All Rights Reserved.</small></p>
+    </div>
+  </footer>  
+</body>
+</html>

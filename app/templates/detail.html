@@ -1,0 +1,56 @@
+{% extends '.\base.html' %}
+{% block title %}{{object.name}}の詳細情報<a href="{% url 'multi_update' object.pk %}"><i class="fas fa-edit ml-3"></i></a>{% endblock %}
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+
+        {% if message.tags %} 
+       　<div class="alert alert-{{ message.tags }}" role="alert" aria-label="Close"><strong>{{ message }}</strong></div>
+      {% endif %}
+		{% endfor %}
+{% endif %}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card border-secondary mb-3" style="max-width: 35rem;">
+            <div class="card-header"><h5>社員情報</h5></div>
+            <div class="card-body text-secondary">
+              
+              <dl class="card-text mt-3">
+                <dd>名前：{{object.name}}</dd>
+                <dd>年齢：{{object.age}}才</dd>
+               
+            </dl>
+        </div></div>
+    </div>
+
+
+    <div class="col-md-6">
+        <div class="card border-secondary mb-3" style="max-width: 35rem;">
+            <div class="card-header"><h5>連絡先情報</h5></div>
+            <div class="card-body text-secondary">
+              
+              <dl class="card-text mt-3">
+                <dd>住所：{{object.contact.address}}</dd>
+                <dd>電話番号：{{object.contact.phoneNumber}}</dd>
+               
+            </dl>
+        </div></div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card border-secondary mb-3" style="max-width: 35rem;">
+            <div class="card-header"><h5>マイナンバー情報</h5></div>
+            <div class="card-body text-secondary">
+              
+              <dl class="card-text mt-3">
+                <dd>マイナンバー番号：{{object.mynumbercard.number}}</dd>
+            </dl>
+        </div></div>
+    </div>
+</div>
+
+
+
+{% endblock %}
